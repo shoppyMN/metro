@@ -454,6 +454,19 @@ function resolveSourceFileForAllExts(
   platform: ?string,
 ): SourceFileResolution {
   if (platform != null) {
+    if (!context.originModulePath.match(/node_modules/) && process.env.TARGET) {
+      const filePath = resolveSourceFileForExt(
+        context,
+        `.${process.env.TARGET}.${platform}${sourceExt}`,
+      );
+      if (filePath) return filePath;
+      const fp = resolveSourceFileForExt(
+        context,
+        `.${process.env.TARGET}${sourceExt}`,
+      );
+      if (fp) return fp;
+    }
+
     const ext = `.${platform}${sourceExt}`;
     const filePath = resolveSourceFileForExt(context, ext);
     if (filePath) {

@@ -1,11 +1,11 @@
 {
-  "name": "metro-resolver",
-  "version": "0.76.8",
+  "name": "@shoppymn/metro-resolver",
+  "version": "0.76.9",
   "description": "🚇 Implementation of Metro's resolution logic.",
   "main": "src",
   "repository": {
     "type": "git",
-    "url": "git@github.com:facebook/metro.git"
+    "url": "git@github.com:shoppyMN/metro.git"
   },
   "scripts": {
     "prepare-release": "test -d build && rm -rf src.real && mv src src.real && mv build src",
